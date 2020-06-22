@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Lord Ganesha
+        </title>
+    </head>
+    <body>
+    <div style="margin-left:2%;margin-top:2%;background-color:white;">
+        <canvas id="canvas1" width="1200" height="480"></canvas>
+        <br>
+        <button onclick="func1()" >Ganesha</button>
+    </div>
+    <script>
+            var canvas=document.getElementById("canvas1");
+            var ctx=canvas.getContext('2d');
+            var arr=["black"];
+            var arr1=["black","gray"];
+            var r=240;
+            function func1()
+            {
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+                for(var i=0;i<=1200;i+=240)
+                {
+                    for(var j=0;j<=480;j+=240)
+                    {
+                        ctx.strokeRect(i,j,r,r);
+                        ctx.strokeStyle = arr1[Math.floor(Math.random()*arr.length)];
+                        ctx.fillStyle = arr[Math.floor(Math.random()*arr.length)];
+                        
+                        ctx.beginPath();                            //eyes
+                        ctx.ellipse(i+r/2+r/24-15, j+r/3,4,7,Math.PI*(7/12),0, 2*Math.PI, false);
+                        ctx.fill();
+                        ctx.closePath();
+                        
+                        ctx.beginPath();                           //left ear
+                        ctx.arc(i+r/3-r/48, j+r/6+r/12+r/48,6,0, 2*Math.PI, false);
+                        ctx.fill();
+                        ctx.closePath();
+
+                        ctx.beginPath();                        //om
+                        ctx.arc(i+r*(2/3)+r/12+2, j+r/2+r/12+2,3,0, 2*Math.PI, false);
+                        ctx.fill();
+                        ctx.closePath();
+
+                        ctx.beginPath();                        //teeth
+                        ctx.moveTo( i+r/3+r/12, j+r/3+r/24+8);
+                        ctx.quadraticCurveTo(i+r/2+r/24, j+r/2+r/12+3, i+r/3+r/12-4, j+r/3+r/24+12);
+                        ctx.fill();
+                        ctx.closePath();
+
+
+                        ctx.beginPath();                    //crown
+                        ctx.ellipse(i+r/2-r/24-2, j+r/12+r/24-5,5,7,Math.PI/3,0, 2*Math.PI, false);
+                        ctx.fill();
+                        ctx.closePath();
+
+                        ctx.lineWidth = 4;
+
+                        ctx.moveTo(i+r/2-r/24, j+r/6-r/24-2);
+                        ctx.quadraticCurveTo(i+r/3+r/24, j+r/6-r/48, i+r/2-r/12, j+r/24-2);
+
+                        ctx.moveTo(i+r/2-r/12, j+r/24-2);
+                        ctx.quadraticCurveTo(i+r/3+r/12, j, i+r/3+r/24, j+r/24);
+                        //lines
+                        ctx.moveTo(i+r/2+r/24, j+r/12);
+                        ctx.quadraticCurveTo(i+r/2, j+r/6, i+r/3+r/24, j+r/6);
+                        ctx.moveTo(i+r/2+r/24+4, j+r/12+r/24);
+                        ctx.quadraticCurveTo(i+r/2+4, j+r/6+4, i+r/3+r/24, j+r/6+r/24);
+                        ctx.moveTo(i+r/2+r/24+8, j+r/12+r/24+r/24);
+                        ctx.quadraticCurveTo(i+r/2+8, j+r/6+8, i+r/3+r/24, j+r/6+r/24+8);
+                        
+                        //shoor
+                        ctx.moveTo(i+r/2+r/24, j+r/6+r/24);
+                        ctx.quadraticCurveTo(i+r*(2/3)-r/24, j+r/3+r/24, i+r/2+r/24, j+r/2);
+                        
+                        ctx.moveTo(i+r/2+r/24, j+r/2);
+                        ctx.quadraticCurveTo(i+r/2, j+r/2+r/12, i+r/2+r/24, j+r*(2/3));
+
+                        ctx.moveTo(i+r/2+r/24+2, j+r/6+r/24+2);
+                        ctx.lineTo(i+r/2, j+r/6+r/24+9);
+                        
+                        ctx.moveTo(i+r/2+r/24+4, j+r/6+r/24+8);
+                        ctx.lineTo(i+r/2, j+r/6+r/24+14);
+
+                        //eyes
+                        ctx.moveTo(i+r/2+r/24, j+r/3);
+                        ctx.quadraticCurveTo(i+r/2, j+r/6+r/12+2, i+r/3+r/12, j+r/3-r/24);
+                        
+                        ctx.moveTo(i+r/2+r/48, j+r/3+r/48);
+                        ctx.quadraticCurveTo(i+r/2+r/24-5, j+r/6+r/12+10, i+r/3+r/12+3, j+r/3-r/48);
+
+                        //left ear
+                        ctx.moveTo(i+r/3-r/48, j+r/6+r/12+r/48-2);
+                        ctx.quadraticCurveTo(i+r/3, j+r/6-r/48, i+r/6+r/12, j+r/12+r/24+6);
+
+                        ctx.moveTo(i+r/6+r/12, j+r/12+r/24+6);
+                        ctx.quadraticCurveTo(i+r/12+4, j+r/6+r/24-3, i+r/6+r/24, j+r/3);
+
+                        ctx.moveTo(i+r/6+r/24, j+r/3);
+                        ctx.quadraticCurveTo(i+r/3-r/24, j+r/3+r/12, i+r/6+r/12, j+r/2);
+
+                        ctx.moveTo(i+r/6, j+r/3+8);
+                        ctx.quadraticCurveTo(i+r/12, j+r/3+5, i+r/12+4, j+r/2-r/24);
+                        
+                        ctx.moveTo(i+r/12+4, j+r/2-r/24);
+                        ctx.quadraticCurveTo(i+r/12+10, j+r/2+r/48, i+r/6+r/24-2, j+r/2-8);
+                        
+                        ctx.moveTo(i+r/6+r/24-2, j+r/2-8);
+                        ctx.quadraticCurveTo(i+r/6+r/24, j+r/3+r/12, i+r/6-r/48, j+r/2-r/24);
+
+                        //om
+                        ctx.moveTo(i+r*(2/3)-r/24, j+r/2-r/24);
+                        ctx.quadraticCurveTo(i+r*(2/3)+r/12-5, j+r*(2/3)-r/12, i+r*(2/3)-r/12, j+r/2+r/12);
+                        
+                        ctx.moveTo(i+r*(2/3)-r/12, j+r/2+r/12-1);
+                        ctx.quadraticCurveTo(i+r*(2/3)+r/24, j+r*(5/6)-r/12, i+r/2-2, j+r*(2/3)+r/12+r/24-1);
+                        
+                        ctx.moveTo(i+r/2-2, j+r*(2/3)+r/12+r/24-1);
+                        ctx.quadraticCurveTo(i+r/3, j+r*(5/6)-r/12, i+r/3+r/48, j+r/2+r/12);
+                       
+                        ctx.moveTo(i+r*(2/3)-5, j+r*(2/3)-r/24-3);
+                        ctx.quadraticCurveTo(i+r*(5/6)-r/12, j+r*(5/6)-r/48, i+r/2, j+r*(5/6)+r/48);
+                        
+                        ctx.moveTo(i+r/2, j+r*(5/6)+r/48);
+                        ctx.quadraticCurveTo(i+r/3+r/12, j+r*(5/6)+r/24, i+r/2-r/48, j+r-r/24);
+
+                        ctx.moveTo(i+r*(2/3)+r/24+5, j+r/2+r/24);
+                        ctx.quadraticCurveTo(i+r*(2/3)-5, j+r*(2/3)+r/24-5, i+r*(5/6)-r/24, j+r*(2/3)-r/24);
+
+                        //left leg
+                        ctx.moveTo(i+r/3-r/24, j+r*(2/3)-r/48);
+                        ctx.quadraticCurveTo(i+r/6+r/12, j+r*(2/3)-r/12, i+r/6, j+r*(2/3)-r/12);
+                        ctx.moveTo(i+r/6, j+r*(2/3)-r/12);
+                        ctx.quadraticCurveTo(i+r/24, j+r*(2/3)-r/12, i+r/12, j+r*(5/6)-r/12-5);
+                        ctx.moveTo( i+r/12, j+r*(5/6)-r/12-5);
+                        ctx.quadraticCurveTo(i+r/6, j+r*(5/6)+r/48, i+r/2-r/24, j+r*(5/6));
+
+                        //right ear
+                        ctx.moveTo( i+r*(2/3)-r/12, j+r/6+r/24);
+                        ctx.quadraticCurveTo(i+r*(5/6), j+r/6,i+r*(2/3)-r/24, j+r/2-r/12);
+
+
+                        
+                        ctx.stroke();
+
+                        
+                    }
+                }
+            }
+    </script>
+    </body>
+</html>
