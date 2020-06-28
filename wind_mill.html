@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Paper Wind Mill
+        </title>
+    </head>
+    <body>
+        <div>
+            <canvas id="canvas1" width="950" height="570" style="margin-left:15%;background-color:black;">
+            </canvas>
+            <br>
+        </div>
+        <div>
+            <button onclick="func1()" style="text-align:center;padding:5px; background-color: dodgerblue;color: floralwhite;">
+                Paper Wind Mill
+            </button>
+        </div>
+    <script>
+            var canvas=document.getElementById("canvas1");
+            var ctx=canvas.getContext('2d');
+            var arr=["white","gray","green","dodgerblue","pink"];
+            var arr1=["brown","purple","blue","#f12c5d"];
+            // var arr1=["gray"];
+            // var arr=["white"];
+            var r=180;
+            function func1()
+            {
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+                for(var i=0;i<=950;i+=190)
+                {
+                    for(var j=0;j<=570;j+=190)
+                    {
+                        // ctx.strokeRect(i,j,190,190);
+                        ctx.strokeStyle = arr[Math.floor(Math.random()*arr.length)];
+                        ctx.fillStyle = arr1[Math.floor(Math.random()*arr1.length)];
+                        ctx.strokeRect(i+r/2,j+r/2,r/9,r/9);
+                        ctx.strokeRect(i+r/2+r/72,j+r/2+r/72,r/9-r/36,r/9-r/36);
+                        ctx.strokeRect(i+r/2+r/36,j+r/2+r/36,r/9-r/18,r/9-r/18);
+                        ctx.strokeRect(i+r/2+r/20,j+r/2+r/20,r/9-r/9+2,r/9-r/9+2);
+                      
+                        //top part of paper wind mill
+                        ctx.beginPath();
+                        ctx.moveTo(i+r/2,j+r/2);
+                        ctx.lineTo(i+r/3,j+r/6);
+                        ctx.lineTo(i+r/3+r/36,j+r/6);
+                        ctx.lineTo(i+r/2,j+r/2);
+
+                        ctx.moveTo(i+r/3+r/36,j+r/6);
+                        ctx.lineTo(i+r/3+r/72,j+r/6-r/36);
+                        ctx.lineTo(i+r/3+r/18,j+r/6-r/36);
+                        ctx.lineTo(i+r/2,j+r/2);
+
+                        ctx.moveTo(i+r/3+r/18,j+r/6-r/36);
+                        ctx.lineTo(i+r/3+r/18-r/72,j+r/6-r/18);
+                        ctx.lineTo(i+r/3+r*(7/72),j+r/6-r/18);
+                        ctx.lineTo(i+r/2,j+r/2);
+                       
+                        ctx.moveTo(i+r*(2/3)-r/72,j+r/6-r/18);
+                        ctx.lineTo(i+r*(2/3)+r/36,j+r/6-r/18);
+                        ctx.lineTo(i+r*(2/3)-r/18,j+r/2);
+
+                        ctx.moveTo(i+r*(2/3)+r/36,j+r/6-r/36);
+                        ctx.lineTo(i+r*(2/3)+r/18,j+r/6-r/36);
+                        ctx.lineTo(i+r*(2/3)-r/18,j+r/2);
+                        
+                        ctx.moveTo(i+r*(2/3)+r/18,j+r/6);
+                        ctx.lineTo(i+r*(2/3)+r/12,j+r/6);
+                        ctx.lineTo(i+r*(2/3)-r/18,j+r/2);
+                        ctx.fill();                        
+
+                        ctx.moveTo(i+r/3+r*(7/72),j+r/6-r/18);
+                        ctx.lineTo(i+r/3+r*(6/72),j+r/6-r/12);
+                        ctx.lineTo(i+r*(2/3)-r/72,j+r/6-r/12);
+                        ctx.lineTo(i+r*(2/3)-r/18,j+r/2);
+
+                        ctx.stroke();
+                        
+                        //bottom part of Paper wind mill
+                        ctx.beginPath();
+                        ctx.moveTo(i+r/2,j+r/2+r/9);
+                        ctx.lineTo(i+r/3,j+r*(8/9)+r/36);
+                        ctx.lineTo(i+r/3+r/36,j+r*(8/9)+r/36);
+                        ctx.lineTo(i+r/2,j+r/2+r/9);
+
+                        ctx.moveTo(i+r/3+r/36,j+r*(8/9)+r/36);
+                        ctx.lineTo(i+r/3+r/72,j+r*(8/9)+r/18);
+                        ctx.lineTo(i+r/3+r/18,j+r*(8/9)+r/18);
+                        ctx.lineTo(i+r/2,j+r/2+r/9);
+
+                        ctx.moveTo(i+r/3+r/18,j+r*(8/9)+r/18);
+                        ctx.lineTo(i+r/3+r/20,j+r*(8/9)+r/12);
+                        ctx.lineTo(i+r/3+r/12,j+r*(8/9)+r/12);
+                        ctx.lineTo(i+r/2,j+r/2+r/9);
+
+                        
+                        ctx.moveTo(i+r*(2/3)-r/72,j+r-r/9+r/12);
+                        ctx.lineTo(i+r*(2/3)+r/36,j+r-r/9+r/12);
+                        ctx.lineTo(i+r*(2/3)-r/18,j+r/2+r/9);
+
+                        ctx.moveTo(i+r*(2/3)+r/36,j+r-r/9+r/18);
+                        ctx.lineTo(i+r*(2/3)+r/18,j+r-r/9+r/18);
+                        ctx.lineTo(i+r*(2/3)-r/18,j+r/2+r/9);
+                        
+                        ctx.moveTo(i+r*(2/3)+r/18,j+r-r/9+r/36);
+                        ctx.lineTo(i+r*(2/3)+r/12,j+r-r/9+r/36);
+                        ctx.lineTo(i+r*(2/3)-r/18,j+r/2+r/9);
+                        ctx.fill();
+
+                        ctx.moveTo(i+r/3+r/12,j+r*(8/9)+r/12);
+                        ctx.lineTo(i+r/3+r/12-r/72,j+r*(8/9)+r/9);
+                        ctx.lineTo(i+r*(2/3)-r/72,j+r*(8/9)+r/9);
+                        ctx.lineTo(i+r*(2/3)-r/18,j+r/2+r/9);
+
+                        ctx.stroke();
+                        
+                        //left side of paper wind mill
+                        ctx.beginPath();
+                        ctx.moveTo(i+r/2,j+r/2);
+                        ctx.lineTo(i+r/6,j+r/3);
+                        ctx.lineTo(i+r/6,j+r/3+r/36);
+                        ctx.lineTo(i+r/2,j+r/2);
+
+                        ctx.moveTo(i+r/6,j+r/3+r/36);
+                        ctx.lineTo(i+r/6-r/36,j+r/3+r/72);
+                        ctx.lineTo(i+r/6-r/36,j+r/3+r/18);
+                        ctx.lineTo(i+r/2,j+r/2);
+
+                        ctx.moveTo(i+r/6-r/36,j+r/3+r/18);
+                        ctx.lineTo(i+r/6-r/18,j+r/3+r/18-r/72);
+                        ctx.lineTo(i+r/6-r/18,j+r/3+r*(7/72));
+                        ctx.lineTo(i+r/2,j+r/2);
+
+                        ctx.moveTo(i+r/6-r/18,j+r*(2/3)-r/72);
+                        ctx.lineTo(i+r/6-r/18,j+r*(2/3)+r/36);
+                        ctx.lineTo(i+r/2,j+r*(2/3)-r/18);
+
+                        ctx.moveTo(i+r/6-r/36,j+r*(2/3)+r/36);
+                        ctx.lineTo(i+r/6-r/36,j+r*(2/3)+r/18);
+                        ctx.lineTo(i+r/2,j+r*(2/3)-r/18);
+                        
+                        ctx.moveTo(i+r/6,j+r*(2/3)+r/18);
+                        ctx.lineTo(i+r/6,j+r*(2/3)+r/12);
+                        ctx.lineTo(i+r/2,j+r*(2/3)-r/18);
+                        ctx.fill();
+
+                        ctx.moveTo(i+r/6-r/18,j+r/3+r*(7/72));
+                        ctx.lineTo(i+r/6-r/12,j+r/3+r*(6/72));
+                        ctx.lineTo(i+r/6-r/12,j+r*(2/3)-r/72);
+                        ctx.lineTo(i+r/2,j+r*(2/3)-r/18);
+
+                        ctx.stroke();
+
+                        //right side of Paper wind mill
+                        ctx.beginPath();
+                        ctx.moveTo(i+r/2+r/9,j+r/2);
+                        ctx.lineTo(i+r*(8/9)+r/36,j+r/3);
+                        ctx.lineTo(i+r*(8/9)+r/36,j+r/3+r/36);
+                        ctx.lineTo(i+r/2+r/9,j+r/2);
+                        
+                        ctx.moveTo(i+r*(8/9)+r/36,j+r/3+r/36);
+                        ctx.lineTo(i+r*(8/9)+r/18,j+r/3+r/72);
+                        ctx.lineTo(i+r*(8/9)+r/18,j+r/3+r/18);
+                        ctx.lineTo(i+r/2+r/9,j+r/2);
+                        
+                        ctx.moveTo(i+r*(8/9)+r/18,j+r/3+r/18);
+                        ctx.lineTo(i+r*(8/9)+r/12,j+r/3+r/20);
+                        ctx.lineTo(i+r*(8/9)+r/12,j+r/3+r/12);
+                        ctx.lineTo(i+r/2+r/9,j+r/2);
+
+                        ctx.moveTo(i+r-r/9+r/12,j+r*(2/3)-r/72);
+                        ctx.lineTo(i+r-r/9+r/12,j+r*(2/3)+r/36);
+                        ctx.lineTo(i+r/2+r/9,j+r*(2/3)-r/18);
+
+                        ctx.moveTo(i+r-r/9+r/18,j+r*(2/3)+r/36);
+                        ctx.lineTo(i+r-r/9+r/18,j+r*(2/3)+r/18);
+                        ctx.lineTo(i+r/2+r/9,j+r*(2/3)-r/18);
+                        
+                        ctx.moveTo(i+r-r/9+r/36,j+r*(2/3)+r/18);
+                        ctx.lineTo(i+r-r/9+r/36,j+r*(2/3)+r/12);
+                        ctx.lineTo(i+r/2+r/9,j+r*(2/3)-r/18);
+                        ctx.fill();
+                        
+                        ctx.moveTo(i+r*(8/9)+r/12,j+r/3+r/12);
+                        ctx.lineTo(i+r*(8/9)+r/9,j+r/3+r/12-r/72);
+                        ctx.lineTo(i+r*(8/9)+r/9,j+r*(2/3)-r/72);
+                        ctx.lineTo(i+r/2+r/9,j+r*(2/3)-r/18);
+                        
+                        ctx.stroke();
+                    }
+                }
+            }
+</script>
+</body>
+</html>
