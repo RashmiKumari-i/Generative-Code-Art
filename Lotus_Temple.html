@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Lotus Temple
+    </title>
+</head>
+
+<body>
+    <div>
+        <!-- <canvas id="canvas1" width="1200" height="600" style="margin-left:6%;background-color:gray;"></canvas> -->
+        <canvas id="canvas1" width="300" height="300" style="margin-left:35%;margin-top:12%;background-color:gray;"></canvas>
+        <br>
+    </div>
+    <div>
+        <button onclick="func1()" style="text-align:center;padding:5px; background-color: dodgerblue;color: floralwhite;">Flower Art</button>
+    </div>
+    <script>
+        var canvas = document.getElementById("canvas1");
+        var ctx = canvas.getContext('2d');
+        var arr = ["black"];
+        var arr1 = ["white"];
+        var r = 300;
+        var k=r/50;
+        function func1() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (var i = 0; i <= 1200; i += 300) {
+                for (var j = 0; j <= 600; j += 300) {
+                    
+                    // ctx.strokeRect(i, j, r, r);
+                    ctx.strokeStyle = arr1[Math.floor(Math.random() * arr.length)];
+                    ctx.stroke();
+                    ctx.fillStyle = arr[Math.floor(Math.random() * arr.length)];
+                    ctx.lineWidth=3;
+                    
+                    //bottom border line
+                    ctx.beginPath();
+                    ctx.moveTo(i,j+r*(7/10)+3*k);
+                    ctx.lineTo(i+r,j+r*(7/10)+3*k);
+                    ctx.lineTo(i+r,j+r*(8/10));
+                    ctx.lineTo(i,j+r*(8/10));
+                    ctx.fill();
+                    ctx.stroke();
+
+                    //1st left bottom Petal
+                    ctx.beginPath();
+                    ctx.moveTo(i+r/10+r/20, j+r*(7/10)+3*k);
+                    ctx.quadraticCurveTo(i+r/10+r/20,j+r*(7/10),i+r/20, j+r*(6/10)+2*k);
+                    ctx.quadraticCurveTo(i+r/10+r/20,j+r*(6/10)+r/20,i+r*(2/10), j+r*(7/10)+3*k);
+                    ctx.lineTo(i+r/10+r/20, j+r*(7/10)+3*k);
+                    
+                    ctx.moveTo(i+r/20, j+r*(6/10)+2*k);
+                    ctx.quadraticCurveTo(i+r*(2/10)-k,j+r*(6/10),i+r*(2/10)+2*k-4, j+r*(7/10)-k);
+                    ctx.lineTo(i+r*(2/10), j+r*(7/10)+3*k);
+                    
+                    //1st Right bottom Petal
+                    ctx.moveTo(i+r*(8/10)+r/20, j+r*(7/10)+3*k);
+                    ctx.quadraticCurveTo(i+r-r/10-r/20,j+r*(7/10),i+r-r/20, j+r*(6/10)+2*k);
+                    ctx.quadraticCurveTo(i+r-r/10-r/20,j+r*(6/10)+r/20,i+r-r*(2/10), j+r*(7/10)+3*k);
+                    ctx.lineTo(i+r*(8/10)+r/20, j+r*(7/10)+3*k);
+                    
+                    ctx.moveTo(i+r-r/20, j+r*(6/10)+2*k);
+                    ctx.quadraticCurveTo(i+r-r*(2/10)+k,j+r*(6/10),i+r-r*(2/10)-2*k+4, j+r*(7/10)-k);
+                    ctx.lineTo(i+r-r*(2/10), j+r*(7/10)+3*k);
+
+                    //2nd Left bottom petal
+                    ctx.moveTo(i+r/10+k,j+r*(6/10)+2*k-3);
+                    ctx.quadraticCurveTo(i+r/10+r/20,j+r*(5/10),i+r*(3/10),j+r*(4/10));
+                    ctx.quadraticCurveTo(i+r*(3/10),j+r*(4/10),i+r*(3/10)+k,j+r*(4/10)+k);
+                    ctx.quadraticCurveTo(i+r*(2/10)+r/20,j+r*(5/10)+r/20,i+r*(2/10)+2*k-4, j+r*(7/10)-k);
+                    
+                    //2nd right bottom petal
+                    ctx.moveTo(i+r-r/10-k,j+r*(6/10)+2*k-3);
+                    ctx.quadraticCurveTo(i+r-r/10-r/20,j+r*(5/10),i+r-r*(3/10),j+r*(4/10));
+                    ctx.quadraticCurveTo(i+r-r*(3/10),j+r*(4/10),i+r-r*(3/10)-k,j+r*(4/10)+k);
+                    ctx.quadraticCurveTo(i+r-r*(2/10)-r/20,j+r*(5/10)+r/20,i+r-r*(2/10)-2*k+4, j+r*(7/10)-k);
+
+                    //3rd left bottom petal
+                    ctx.moveTo(i+r*(3/10)+k,j+r*(4/10)+k);
+                    ctx.lineTo(i+r*(3/10)+r/20,j+r*(4/10)-2*k);
+                    ctx.quadraticCurveTo(i+r*(4/10)+k,j+r*(5/10)+2*k,i+r*(4/10),j+r*(7/10));
+                    ctx.quadraticCurveTo(i+r*(3/10)+r/20,j+r*(6/10)+2*k,i+r*(3/10)-k,j+r*(6/10)+2*k);
+                    ctx.quadraticCurveTo(i+r*(2/10)+k,j+r*(7/10)+k,i+r*(2/10)+2*k,j+r*(7/10)+3*k);
+                    ctx.lineTo(i+r*(2/10), j+r*(7/10)+3*k);
+                    
+                    ctx.moveTo(i+r*(4/10)+r/20,j+r*(7/10)+3*k);
+                    ctx.quadraticCurveTo(i+r*(3/10)+r/20,j+r*(6/10)+k,i+r*(3/10)-k,j+r*(6/10)+2*k);
+                    ctx.quadraticCurveTo(i+r*(2/10)+k,j+r*(7/10)+k,i+r*(2/10)+2*k,j+r*(7/10)+3*k);
+                    
+                    //3rd right bottom petal
+                    ctx.moveTo(i+r-r*(3/10)-k,j+r*(4/10)+k);
+                    ctx.lineTo(i+r-r*(3/10)-r/20,j+r*(4/10)-2*k);
+                    ctx.quadraticCurveTo(i+r-r*(4/10)-k,j+r*(5/10)+2*k,i+r-r*(4/10),j+r*(7/10));
+                    ctx.quadraticCurveTo(i+r-r*(3/10)-r/20,j+r*(6/10)+2*k,i+r-r*(3/10)+k,j+r*(6/10)+2*k);
+                    ctx.quadraticCurveTo(i+r-r*(2/10)-k,j+r*(7/10)+k,i+r-r*(2/10)-2*k,j+r*(7/10)+3*k);
+                    ctx.lineTo(i+r-r*(2/10), j+r*(7/10)+3*k);
+                    
+                    ctx.moveTo(i+r-r*(4/10)-r/20,j+r*(7/10)+3*k);
+                    ctx.quadraticCurveTo(i+r-r*(3/10)-r/20,j+r*(6/10)+k,i+r-r*(3/10)+k,j+r*(6/10)+2*k);
+                    ctx.quadraticCurveTo(i+r-r*(2/10)-k,j+r*(7/10)+k,i+r-r*(2/10)-2*k,j+r*(7/10)+3*k);
+                    
+                    //center middle petal
+                    ctx.moveTo(i+r*(4/10)+r/20,j+r*(7/10)+3*k);
+                    ctx.quadraticCurveTo(i+r*(4/10)+r/20,j+r*(7/10)+3*k,i+r*(4/10),j+r*(7/10));
+                    ctx.quadraticCurveTo(i+r*(4/10),j+r*(5/10),i+r*(5/10),j+r*(4/10)-2*k);
+                    ctx.quadraticCurveTo(i+r*(6/10),j+r*(5/10),i+r-r*(4/10),j+r*(7/10));
+                    ctx.quadraticCurveTo(i+r*(5/10)+r/20,j+r*(7/10)+3*k,i+r-r*(4/10)-r/20,j+r*(7/10)+3*k);
+
+                    //top 1st left petal
+                    ctx.moveTo(i+r*(3/10)+r/20,j+r*(4/10)-2*k);
+                    ctx.quadraticCurveTo(i+r*(3/10)+r/20,j+r*(2/10),i+r*(5/10),j+r/10);
+                    ctx.quadraticCurveTo(i+r*(3/10)+3*k,j+r*(2/10)+k,i+r*(3/10)+4*k,j+r*(4/10)+2*k);
+
+                    ctx.moveTo(i+r*(4/10),j+r*(7/10));
+                    ctx.quadraticCurveTo(i+r*(4/10),j+r*(5/10),i+r*(3/10)+4*k,j+r*(4/10)+2*k);
+                    ctx.quadraticCurveTo(i+r*(3/10)+3*k,j+r*(2/10)+k,i+r*(5/10),j+r/10+k+2);
+                    ctx.quadraticCurveTo(i+r*(3/10)+4*k,j+r*(3/10)-k,i+r*(4/10)+r/20+k/2,j+r*(4/10)+k);
+                    ctx.quadraticCurveTo(i+r*(4/10)+k,j+r*(5/10),i+r*(4/10),j+r*(7/10));
+                    
+                    //top 1st right petal
+                    ctx.moveTo(i+r-r*(3/10)-r/20,j+r*(4/10)-2*k);
+                    ctx.quadraticCurveTo(i+r-r*(3/10)-r/20,j+r*(2/10),i+r-r*(5/10),j+r/10);
+                    ctx.quadraticCurveTo(i+r-r*(3/10)-3*k,j+r*(2/10)+k,i+r-r*(3/10)-4*k,j+r*(4/10)+2*k);
+
+                    ctx.moveTo(i+r-r*(4/10),j+r*(7/10));
+                    ctx.quadraticCurveTo(i+r-r*(4/10),j+r*(5/10),i+r-r*(3/10)-4*k,j+r*(4/10)+2*k);
+                    ctx.quadraticCurveTo(i+r-r*(3/10)-3*k,j+r*(2/10)+k,i+r-r*(5/10),j+r/10+k+2);
+                    ctx.quadraticCurveTo(i+r-r*(3/10)-4*k,j+r*(3/10)-k,i+r-r*(4/10)-r/20-k/2,j+r*(4/10)+k);
+                    ctx.quadraticCurveTo(i+r-r*(4/10)-k,j+r*(5/10),i+r-r*(4/10),j+r*(7/10));
+
+                    //top middle petal
+                    ctx.moveTo(i+r*(5/10),j+r*(4/10)-2*k);
+                    ctx.quadraticCurveTo(i+r*(4/10)+r/20+k,j+r*(4/10),i+r*(4/10)+r/20+k/2,j+r*(4/10)+k);
+                    ctx.quadraticCurveTo(i+r*(3/10)+4*k,j+r*(3/10)-k,i+r*(5/10),j+r/10);
+                    ctx.quadraticCurveTo(i+r-r*(3/10)-4*k,j+r*(3/10)-k,i+r-r*(4/10)-r/20-k/2,j+r*(4/10)+k);
+                    ctx.quadraticCurveTo(i+r*(5/10)+r/20-k,j+r*(4/10),i+r*(5/10),j+r*(4/10)-2*k);
+
+                    ctx.fill();
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
