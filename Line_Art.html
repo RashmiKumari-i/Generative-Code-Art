@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Line Art
+        </title>
+    </head>
+    <body>
+        <div style="margin-left: 2%;margin-top: 3%;background-color: white;">
+            <canvas id="canvas1" width="800" height="800"></canvas>
+            <br>
+            <button onclick="func1()">Line Art</button>
+        </div>
+        <script>
+            var canvas= document.getElementById("canvas1");
+            var ctx= canvas.getContext('2d');
+            var arr= ["black"];
+            var arr1=["gray","blue","pink", "dodgerblue"];
+            var r=400;
+            function func1(){
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+                for(var i=0;i<=800;i+=400){
+                    for(var j=0;j<=800;j+=400){
+                        ctx.strokeStyle= arr1[Math.floor(Math.random()*arr1.length)];
+                        ctx.strokeRect(i,j,r,r);
+                        ctx.lineWidth =2;
+                        ctx.beginPath();
+                        for(var k=0;k<=r/4;k+=4)
+                        {
+                            //upper diamond
+                            ctx.moveTo(i+r/4+k,j+r/4-k);
+                            ctx.lineTo(i+r/2,j+r/2-2*k);
+                            ctx.lineTo(i+r-r/4-k,j+r/4-k);
+                            ctx.quadraticCurveTo(i+r-k,j+r/2,i+r-r/4-k,j+r*(3/4));    //right side curve 
+                            ctx.lineTo(i+r/4+k,j+r/4-k);
+
+                            //lower diamond
+                            ctx.moveTo(i+r/4+k,j+r*(3/4)+k);
+                            ctx.lineTo(i+r/2,j+r/2+2*k);
+                            ctx.lineTo(i+r-r/4-k,j+r*(3/4)+k);
+                            ctx.lineTo(i+r/4+k,j+r*(3/4)+k);
+                            ctx.quadraticCurveTo(i+k,j+r/2,i+r/4+k,j+r/4);          //left side curve
+
+                        }
+                        ctx.stroke();
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
