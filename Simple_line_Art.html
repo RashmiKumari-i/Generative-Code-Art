@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Simple Illusion Art
+        </title>
+    </head>
+    <body>
+        <div style="margin-left:2%; margin-top: 3%;">
+        <canvas id="canvas1" width="480" height="480" style="background-color: black;"></canvas>
+        <br>
+        <button onclick="func1()">Design</button>
+        </div>
+        <script>
+            var canvas=document.getElementById("canvas1");
+            var ctx=canvas.getContext('2d');
+            var arr=["white"];
+            var arr1=["rgb(77,143,88)"];
+            var r=80;
+            function func1()
+            {
+                ctx.clearRect(0,0,canvas.width, canvas.height);
+                for(var i=0;i<=480;i+=r)
+                {
+                    for(var j=0;j<=480;j+=r)
+                    {
+                        ctx.beginPath();
+                        ctx.fillStyle= arr[Math.floor(Math.random()*arr.length)];
+                        // ctx.strokeRect(i,j,r,r);
+                        //top left block
+                        ctx.moveTo(i+r/8,j+r/16);
+                        ctx.lineTo(i+r/2,j);
+                        ctx.lineTo(i+r/2-r/16,j+r/2-r/8);
+                        ctx.lineTo(i,j+r/2);
+                        ctx.lineTo(i+r/8,j+r/16);
+                        
+                        //bottom right block
+                        ctx.moveTo(i+r/2+r/8,j+r/2+r/16);
+                        ctx.lineTo(i+r, j+r/2);
+                        ctx.lineTo(i+r-r/8,j+r-r/16);
+                        ctx.lineTo(i+r/2+r/32,j+r);
+                        ctx.lineTo(i+r/2+r/8, j+r/2+r/16);
+                        
+                        ctx.fill();
+                        ctx.closePath();
+
+                        ctx.beginPath();
+                        ctx.fillStyle= arr1[Math.floor(Math.random()*arr1.length)];
+                        //bottom left block
+                        ctx.moveTo(i,j+r/2);
+                        ctx.lineTo(i+r/2,j+r/2,r/16);
+                        ctx.lineTo(i+r/2,j+r);
+                        ctx.lineTo(i+r/16,j+r-r/16);
+                        ctx.lineTo(i,j+r/2);
+                        
+                        //top right block
+                        ctx.moveTo(i+r/2,j);
+                        ctx.lineTo(i+r-r/16,j+r/32);
+                        ctx.lineTo(i+r,j+r/2);
+                        ctx.lineTo(i+r/2+r/16,j+r/2-r/16);
+                        ctx.lineTo(i+r/2,j);
+
+                        ctx.fill();
+                        ctx.closePath();
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
