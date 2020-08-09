@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Hexagonal Pattern
+        </title>
+    </head>
+    <body>
+        <div style="margin-left:2%; margin-top: 3%;">
+        <canvas id="canvas1" width="500" height="500" style="background-color: white;"></canvas>
+        <br>
+        <button onclick="func1()">Hexagonal Design</button>
+        </div>
+        <script>
+            var canvas=document.getElementById("canvas1");
+            var ctx=canvas.getContext('2d');
+            var arr=["black"];
+            var arr1=["rgb(77,143,88)"];
+            var w=60;
+            var h=100;
+            function func1()
+            {
+                ctx.clearRect(0,0,canvas.width, canvas.height);
+                for(var i=20;i<=500;i+=w+40)
+                {
+                    for(var j=0;j<=500;j+=h)
+                    {
+                        // ctx.strokeRect(i-20,j,w+40,h);
+
+                        //upper part of the image
+                        ctx.beginPath();
+                        ctx.strokeStyle= arr[Math.floor(Math.random()*arr.length)];
+                        ctx.moveTo(i,j);
+                        ctx.quadraticCurveTo(i+w/2,j+h/20,i+w/2,j+h/5+h/20);
+                        ctx.quadraticCurveTo(i+w/3,j+h*(2/5)-h/20,i+w/2,j+h/2);
+                        var grd1 = ctx.createLinearGradient(i, j,i+w/2,j+h/2);
+                        grd1.addColorStop(0, '#333333');   
+                        grd1.addColorStop(1, '#e6e6e6');
+                        ctx.fillStyle = grd1;
+                        ctx.fill();
+                        // ctx.stroke();
+                        ctx.closePath();
+
+                        ctx.beginPath();
+                        ctx.moveTo(i+w/2,j+h/2);
+                        ctx.quadraticCurveTo(i+w/3,j+h*(2/5)-h/20,i+w/2,j+h/5+h/20);
+                        ctx.quadraticCurveTo(i+w*(2/3),j+h/5+h/20,i+w*(2/3)+w/6+2,j+h/5-h/20);
+                        var grd2 = ctx.createLinearGradient(i+w*(2/3)+w/6,j+h/5,i+w/2,j+h/2);
+                        grd2.addColorStop(0, '#333333');   
+                        grd2.addColorStop(1, '#e6e6e6');
+                        ctx.fillStyle = grd2;
+                        ctx.fill();
+                        // ctx.stroke();
+                        ctx.closePath();
+                        
+                        ctx.beginPath();                        
+                        ctx.moveTo(i+w/2,j+h/2);
+                        ctx.quadraticCurveTo(i+w*(2/3),j+h/5+h/10+5,i+w*(2/3)+w/6,j+h*(2/5)-h/20);
+                        ctx.quadraticCurveTo(i+w*(2/3)+w/6,j+h*(2/5)+h/10,i+w+w/6,j+h/2);
+                        var grd3 = ctx.createLinearGradient(i+w/2,j+h/2,i+w,j+h/2);
+                        grd3.addColorStop(0, '#333333');   
+                        grd3.addColorStop(1, '#e6e6e6');
+                        ctx.fillStyle = grd3;
+                        ctx.fill();
+                        // ctx.stroke();
+                        ctx.closePath();
+                        
+                        ctx.beginPath();                        
+                        ctx.moveTo(i+w,j);
+                        ctx.quadraticCurveTo(i+w+w/6+4,j+h*(2/5)-h/10-5,i+w*(2/3)+w/6,j+h*(2/5)-h/20);
+                        ctx.quadraticCurveTo(i+w*(2/3),j+h/5+h/10+5,i+w/2,j+h/2);
+                        var grd4 = ctx.createLinearGradient(i+w,j,i+w/2,j+h/2);
+                        grd4.addColorStop(0, '#333333');   
+                        grd4.addColorStop(1, '#e6e6e6');
+                        ctx.fillStyle = grd4;
+                        ctx.fill();
+                        // ctx.stroke();
+                        ctx.closePath();
+                        
+                        ctx.beginPath();                        
+                        ctx.moveTo(i+w/2,j+h/2);
+                        ctx.quadraticCurveTo(i+w/3,j+h/2,i+w/6,j+h*(2/5)-h/20);
+                        ctx.quadraticCurveTo(i+w/3,j+h*(2/5)-h/10,i+w/6,j+h/5-h/20);
+                        var grd5 = ctx.createLinearGradient(i+w/2,j+h/2,i+w/3,j+h/5);
+                        grd5.addColorStop(0, '#333333');   
+                        grd5.addColorStop(1, '#e6e6e6');
+                        ctx.fillStyle = grd5;
+                        ctx.fill();
+                        // ctx.stroke();
+                        ctx.closePath();
+                        
+                        ctx.beginPath();                        
+                        ctx.moveTo(i-w/3,j+h/2);
+                        ctx.quadraticCurveTo(i-w/12-4,j+h*(2/5)-h/20,i+w/6,j+h*(2/5)-h/20);
+                        ctx.quadraticCurveTo(i+w/3,j+h/2,i+w/2,j+h/2);
+                        ctx.lineTo(i-w/3,j+h/2);
+                        var grd6 = ctx.createLinearGradient(i,j+h*(2/5)+h/20,i+w/2,j+h/2);
+                        grd6.addColorStop(0, '#333333');   
+                        grd6.addColorStop(1, '#e6e6e6');
+                        ctx.fillStyle = grd6;
+                        ctx.fill();
+                        // ctx.stroke();
+                        ctx.closePath();
+                        
+                        //lower part of the image
+                        ctx.beginPath();                        
+                        ctx.moveTo(i+w/2,j+h/2);
+                        ctx.quadraticCurveTo(i+w/3+w/6,j+h*(3/5),i+w/3-w/12,j+h*(3/5));
+                        ctx.quadraticCurveTo(i+w/6,j+h/2-h/20,i-w/3+w/6,j+h/2);
+                        var grd7 = ctx.createLinearGradient(i+w/2,j+h/2,i,j+h/2);
+                        grd7.addColorStop(0, '#333333');   
+                        grd7.addColorStop(1, '#e6e6e6');
+                        ctx.fillStyle = grd7;
+                        ctx.fill();
+                        // ctx.stroke();
+                        ctx.closePath();
+                        
+                        ctx.beginPath();                        
+                        ctx.moveTo(i,j+h);
+                        ctx.quadraticCurveTo(i-w/6,j+h*(3/5)+h/20,i+w/3-w/12,j+h*(3/5));
+                        ctx.quadraticCurveTo(i+w/3+w/6,j+h*(3/5),i+w/2,j+h/2);
+                        var grd8 = ctx.createLinearGradient(i,j+h,i+w/2,j+h/2);
+                        grd8.addColorStop(0, '#333333');   
+                        grd8.addColorStop(1, '#e6e6e6');
+                        ctx.fillStyle = grd8;
+                        ctx.fill();
+                        // ctx.stroke();
+                        ctx.closePath();
+
+                        ctx.beginPath();                        
+                        ctx.moveTo(i+w/2,j+h/2);
+                        ctx.quadraticCurveTo(i+w/2+w/6,j+h*(3/5)+h/10,i+w/2,j+h*(4/5)-h/10+2);
+                        ctx.quadraticCurveTo(i+w/3-w/12,j+h*(3/5)+h/10,i+w/12-4,j+h-h/20);
+                        var grd9 = ctx.createLinearGradient(i+w/2,j+h/2,i+w/3-w/6-2,j+h*(4/5)+h/20);
+                        grd9.addColorStop(0, '#333333');   
+                        grd9.addColorStop(1, '#e6e6e6');
+                        ctx.fillStyle = grd9;
+                        ctx.fill();
+                        // ctx.stroke();
+                        ctx.closePath();
+                        
+                        ctx.beginPath();                        
+                        ctx.moveTo(i+w,j+h);
+                        ctx.quadraticCurveTo(i+w/3+w/6,j+h-h/20,i+w/2,j+h*(4/5)-h/10+2);
+                        ctx.quadraticCurveTo(i+w/2+w/6,j+h*(3/5)+h/10,i+w/2,j+h/2);
+                        var grd10 = ctx.createLinearGradient(i+w,j+h,i+w/2,j+h/2);
+                        grd10.addColorStop(0, '#333333');   
+                        grd10.addColorStop(1, '#e6e6e6');
+                        ctx.fillStyle = grd10;
+                        ctx.fill();
+                        // ctx.stroke();
+                        ctx.closePath();
+                        
+                        ctx.beginPath();                        
+                        ctx.moveTo(i+w/2,j+h/2);
+                        ctx.quadraticCurveTo(i+w*(2/3)+w/6,j+h/2,i+w-w/6,j+h*(3/5)+h/20);
+                        ctx.quadraticCurveTo(i+w*(2/3),j+h*(3/5)+h/10,i+w-w/12,j+h-h/20);
+                        ctx.lineTo(i+w/2,j+h/2);
+                        var grd11 = ctx.createLinearGradient(i+w/2,j+h/2,i+w-w/12,j+h-h/20);
+                        grd11.addColorStop(0, '#333333');   
+                        grd11.addColorStop(1, '#e6e6e6');
+                        ctx.fillStyle = grd11;
+                        ctx.fill();
+                        // ctx.stroke();
+                        ctx.closePath();
+                        
+                        ctx.beginPath();                        
+                        ctx.moveTo(i+w+w/3,j+h/2);
+                        ctx.quadraticCurveTo(i+w+w/12,j+h*(3/5)+h/20,i+w-w/6,j+h*(3/5)+h/20);
+                        ctx.quadraticCurveTo(i+w*(2/3)+w/6,j+h/2,i+w/2,j+h/2);
+                        var grd12 = ctx.createLinearGradient(i+w+w/3,j+h/2,i+w/2,j+h/2);
+                        grd12.addColorStop(0, '#333333');   
+                        grd12.addColorStop(1, '#e6e6e6');
+                        ctx.fillStyle = grd12;
+                        ctx.fill();
+                        // ctx.stroke();
+                        ctx.closePath();
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
