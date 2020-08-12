@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            KRISHNA
+        </title>
+    </head>
+    <body>
+    <div style="margin-left:2%;margin-top:2%;background-color:black;">
+        <canvas id="canvas1" width="1200" height="400"></canvas>
+        <br>
+    </div>
+        <button onclick="func1()" >Krishna</button>
+    <script>
+            var canvas=document.getElementById("canvas1");
+            var ctx=canvas.getContext('2d');
+            var arr=["white"];
+            var h=200;
+            var r=400;
+            var v=300;
+            function func1()
+            {
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+                for(var i=0;i<=1200;i+=200)
+                {
+                    for(var j=0;j<=400;j+=400)
+                    {
+                        ctx.strokeStyle = arr[Math.floor(Math.random()*arr.length)];
+                        // ctx.strokeRect(i,j,h,r);
+                        ctx.beginPath();
+                        ctx.lineWidth=4;
+                        ctx.ellipse(i+h*(3/4)-h/16+4,j+v/4-v/16-5,7,12,Math.PI*(1/4),0,Math.PI*2,false);//turbun                        ctx.stroke();
+                        ctx.closePath();
+
+                        ctx.beginPath();
+                        ctx.lineWidth=8;
+                        ctx.moveTo(i+h*(3/4)+5,j+v/4-v/16+12);              //turbun
+                        ctx.quadraticCurveTo(i+h/2+h/8,j+v/4+2,i+h/2+10,j+v/4-6);
+                        ctx.stroke();
+
+                        ctx.lineWidth=5;
+                        
+                        ctx.moveTo(i+h/2+10,j+v/4-6);                       //turbun
+                        ctx.quadraticCurveTo(i+h/2-4,j+v/4-4,i+h/2-3,j+v/4+3);
+                        
+                        ctx.moveTo(i+h/2+h/8,j+v/16);                       //peacock wing
+                        ctx.quadraticCurveTo(i+h/2+h/16,j+v/8+v/16,i+h/2+h/8+3,j+v/4-v/16);
+                        
+                        ctx.moveTo(i+h/2+h/8+3,j+v/4-v/16);                 //peacock wing
+                        ctx.quadraticCurveTo(i+h/2+h/8-4,j+v/8-14,i+h*(3/4)+h/16,j+v/8-v/16);
+                        
+                        ctx.moveTo(i+h*(3/4)+h/16,j+v/8-v/16);              //peacock wing
+                        ctx.quadraticCurveTo(i+h*(3/4)+h/8-4,j+v/8+14,i+h*(3/4)-h/16,j+v/4-v/16+6);
+                        
+                        ctx.moveTo(i+h*(3/4)-h/16,j+v/4-v/16+6);            //peacock wing
+                        ctx.quadraticCurveTo(i+h*(3/4)-h/32,j+v/4-v/16+10,i+h*(3/4)+h/32+10,j+v/4-v/16+6);
+                        
+                        ctx.moveTo(i+h*(3/4)+3,j+v/4+5);                    //face
+                        ctx.quadraticCurveTo(i+h*(3/4)+7,j+v/4+20,i+h*(3/4)+2,j+v/4+v/16+12);
+
+                        ctx.moveTo(i+h/4,j+v/2-v/32+4);                     //left hand 
+                        ctx.quadraticCurveTo(i+h/4-4,j+v/2-v/8-4,i+h/4+h/8+4,j+v/2-v/16);
+
+                        ctx.moveTo(i+h/4,j+v/2+12);                         //left hand
+                        ctx.quadraticCurveTo(i+h/4+4,j+v/2+v/8+6,i+h/4+h/8,j+v/2+4);
+
+                        ctx.moveTo(i+h/2-h/16,j+v/2+10);                    //body
+                        ctx.quadraticCurveTo(i+h/2-15,j+v/2+v/16+6,i+h/2+5,j+v/2+v/8+5);
+
+                        ctx.moveTo(i+h/2+5,j+v/2+v/8+5);                    //body
+                        ctx.quadraticCurveTo(i+h/2+20,j+v/2+v/8+18,i+h/2+h/16+2,j+v*(3/4)+10);
+                        
+                        ctx.moveTo(i+h/2+v/16+8,j+v*(3/4)+8);               //body 
+                        ctx.quadraticCurveTo(i+h*(3/4)+2,j+v*(3/4)+8,i+h*(3/4)+20,j+v*(3/4)-v/16-8);
+                        
+                        ctx.moveTo(i+h*(3/4)+6,j+v*(3/4)-4);                //body
+                        ctx.quadraticCurveTo(i+h*(3/4)+h/16+6,j+v/2+v/8,i+h*(3/4)+10,j+v/2+10);
+
+                        ctx.moveTo(i+h*(3/4)+6,j+v*(3/4)-4);                //leg part
+                        ctx.quadraticCurveTo(i+h*(3/4)-h/16+6,j+v*(3/4)+v/8+5,i+h*(3/4)+h/16,j+v+v/16+5);
+                        
+                        ctx.moveTo(i+h*(3/4)+12,j+v*(3/4)-2);               //leg part
+                        ctx.quadraticCurveTo(i+h-h/16,j+v*(3/4)+v/8+10,i+h*(3/4)-8,j+v+v/16-2);
+
+                        ctx.moveTo(i+h/2+5,j+v*(3/4)+15);                   //leg part 2
+                        ctx.quadraticCurveTo(i+h/2-h/16,j+v*(3/4)+v/8,i+h/2-6,j+v-v/16+5);
+
+                        ctx.moveTo(i+h/2,j+v+v/16-5);                       //leg part2
+                        ctx.quadraticCurveTo(i+h/2+h/8-6,j+v+v/8+5,i+h*(3/4)+5,j+v+v/8+8);
+                        
+                        ctx.stroke();
+
+                        ctx.lineWidth=3;
+                        ctx.moveTo(i+h*(3/4)+12,j+v/4+v/16+12);             //flute
+                        ctx.lineTo(i+10,j+v/2+15);
+
+                        ctx.moveTo(i+10,j+v/2+15);                          //flute
+                        ctx.quadraticCurveTo(i,j+v/2+21,i+10,j+v/2+23);
+
+                        ctx.moveTo(i+10,j+v/2+23);                          //flute
+                        ctx.lineTo(i+h*(3/4)+18,j+v/4+v/16+17);
+
+                        ctx.moveTo(i+h*(3/4)+18,j+v/4+v/16+18);             //flute
+                        ctx.quadraticCurveTo(i+h*(3/4)+18,j+v/4+v/16+8,i+h*(3/4)+12,j+v/4+v/16+12);
+
+                        ctx.moveTo(i+h*(3/4)+8,j+v/4+v/8+8);                //right hand
+                        ctx.quadraticCurveTo(i+h*(3/4)+h/8,j+v/2,i+h/2+h/8,j+v/2+v/16+8);
+
+                        ctx.moveTo(i+h/2+h/8,j+v/2+v/16+8);                 //right hand
+                        ctx.quadraticCurveTo(i+h/2,j+v/2+v/16,i+h/2,j+v/2+4);
+                        
+                        ctx.moveTo(i+h/2,j+v/2+4);                          //right hand
+                        ctx.lineTo(i+h/2-6,j+v/2+4+2);
+
+                        ctx.moveTo(i+h/2-6,j+v/2+4+2);                      //right hand
+                        ctx.quadraticCurveTo(i+h/2-4,j+v/2+v/16+5,i+h/2+h/8+4,j+v/2+v/16+14);
+                        
+                        ctx.moveTo(i+h/2+h/8+4,j+v/2+v/16+14);              //right hand
+                        ctx.quadraticCurveTo(i+h*(3/4)+h/8+4,j+v/2+5,i+h*(3/4)+15,j+v/4+v/8+6);
+
+                        ctx.moveTo(i+h*(3/4)+15,j+v/4+v/8+6);               //right hand
+                        ctx.lineTo(i+h*(3/4)+8,j+v/4+v/8+8);
+
+                        ctx.moveTo(i+h/2-7,j+v-v/16+4);                     //leg part2
+                        ctx.quadraticCurveTo(i+h/2-6,j+v+8,i+h/2,j+v+v/16-5);
+
+                        ctx.moveTo(i+h*(3/4)+5,j+v+v/8+8);                  //1st feet
+                        ctx.quadraticCurveTo(i+h*(3/4)+h/16+8,j+v+v/8+12,i+h*(3/4)+8,j+v+v/4-5);
+
+                        ctx.moveTo(i+h*(3/4)+8,j+v+v/4-5);                  //1st feet
+                        ctx.quadraticCurveTo(i+h*(3/4)+2,j+v+v/4+4,i+h*(3/4)+5,j+v+v/4+8);
+                        
+                        ctx.moveTo(i+h*(3/4)+5,j+v+v/4+8);                  //1st feet
+                        ctx.quadraticCurveTo(i+h*(3/4)+6,j+v+v/4+21,i+h*(3/4)-6,j+v+v/4+20);
+
+                        ctx.moveTo(i+h*(3/4)+5,j+v+v/8+8);                  //1st feet
+                        ctx.quadraticCurveTo(i+h*(3/4)-1,j+v+v/4+1,i+h*(3/4)-4,j+v+v/4-2);
+                        
+                        ctx.moveTo(i+h*(3/4)-h/16-10,j+v+v/8+12);           //2nd feet
+                        ctx.quadraticCurveTo(i+h*(3/4)-h/8-8,j+v+v/4-5,i+h*(3/4)-h/16-10,j+v+v/4+18);
+
+                        ctx.moveTo(i+h*(3/4)-h/16-10,j+v+v/4+18);           //2nd feet
+                        ctx.lineTo(i+h*(3/4)-h/16-15,j+v+v/4+22);
+
+                        ctx.moveTo(i+h*(3/4)-h/8-3,j+v+v/4-3);              //2nd feet
+                        ctx.quadraticCurveTo(i+h*(3/4)-h/8-9,j+v+v/4+8,i+h*(3/4)-h/8-15,j+v+v/4-3);
+
+                        ctx.stroke();                 
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
