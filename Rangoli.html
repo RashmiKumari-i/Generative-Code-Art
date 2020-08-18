@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Rangoli
+        </title>
+    </head>
+    <body>
+    <div style="margin-left:2%;margin-top:2%;background-color:white;">
+        <canvas id="canvas1" width="400" height="400"></canvas>
+        <br>
+    </div>
+        <button onclick="func1()" >Rangoli Art</button>
+    <script>
+            var canvas=document.getElementById("canvas1");
+            var ctx=canvas.getContext('2d');
+            var arr1=["black"];
+            var arr=["gray","red","blue"];
+            // ctx.strokeRect(10,10,400,400);      
+            ctx.translate(200,200);    //Moves the origin to the coordinate 200,200
+            function func1()
+            {
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+                ctx.strokeStyle = arr[Math.floor(Math.random()*arr.length)];  
+                ctx.fillStyle = arr1[Math.floor(Math.random()*arr1.length)];  
+                //ctx.rotate(Rotation);  //Use this if you want the whole polygon rotated
+                DodecagonPolygonSlices(150,12,ctx);   //Dodecagon with radius 150
+                //ctx.rotate(-Rotation); //remember to 'un-rotate' (or save and restore)
+                ctx.stroke();
+            }
+            function DodecagonPolygonSlices(r,p,ctx)       //r is radius, p is number of sides of polygon, and ctx is the context object
+            {  
+                for(i=0; i<p; i++)
+                {
+                        ctx.lineWidth=2;
+                        ctx.rotate(2*Math.PI/p);
+                        ctx.moveTo(r,0);
+                        ctx.lineTo(0,0);
+                        var x=0,y=0;
+                        var w=300;
+                        var h=200;
+                        ctx.moveTo(x,y);            //First element
+                        ctx.lineTo(x+w/15,y);
+                        ctx.lineTo(x+w/30,y+h/64);
+                        ctx.lineTo(x+w/15,y+h/16);
+                        ctx.lineTo(x,y);
+                        
+                        ctx.moveTo(x+w/15,y+h/32);          //Second element
+                        ctx.quadraticCurveTo(x+w/15+w/30,y,x+w*(2/15),y+h/32+h/64);
+                        ctx.quadraticCurveTo(x+w/15+w/30,y+h/16+h/64,x+w/15,y+h/32);
+                        
+                        ctx.moveTo(x+w*(2/15),y);           //Third element
+                        ctx.quadraticCurveTo(x+w*(3/15),y+h/16+h/32,x+w*(3/15)+w/30,y+h/16+2);
+                        ctx.quadraticCurveTo(x+w*(3/15),y+h/16,x+w*(2/15)+w/30,y);
+                        
+                        ctx.moveTo(x+w*(2/15)-w/60,y+h/8-h/64-2);     //Fourth element
+                        ctx.quadraticCurveTo(x+w*(3/15),y+h/32,x+w*(3/15)+w/30,y+h/16+2);
+                        ctx.quadraticCurveTo(x+w*(3/15),y+h/32,x+w*(2/15)+w/30-7,y+h/8+h/64-3);
+                        
+                        ctx.moveTo(x+w*(4/15),y+h/16+h/32);         //Fifth element
+                        ctx.quadraticCurveTo(x+w*(4/15)+w/30,y+h*(2/8)-h/16,x+w*(5/15),y+h/8+h/16);
+                        ctx.quadraticCurveTo(x+w*(5/15)-w/30,y+h/8+h/64,x+w*(4/15)+w/30,y+h/16+h/32);
+                        ctx.quadraticCurveTo(x+w*(5/15)+w/30,y,x+w*(5/15)+w/60,y+h/16-h/32);
+                        ctx.quadraticCurveTo(x+w*(5/15),y,x+w*(4/15),y+h/16+h/32);
+                        
+                        ctx.moveTo(x+w*(3/15),y);               //Sixth element
+                        ctx.quadraticCurveTo(x+w*(3/15)+w/30,y+h/16,x+w*(4/15)+w/30,y);
+                        ctx.quadraticCurveTo(x+w*(5/15)+w/30,y-h/8,x+w*(6/15)+w/30,y);
+                        ctx.quadraticCurveTo(x+w*(7/15),y+h/16,x+w*(8/15)-w/30,y);
+                        
+                        ctx.moveTo(x+w*(5/15),y+h/16+h/32);     //Seventh element
+                        ctx.quadraticCurveTo(x+w*(5/15)+w/30+5,y,x+w*(6/15)+w/30,y+h/16+h/32);
+                        ctx.quadraticCurveTo(x+w*(5/15)+w/30+5,y+h/8+h/16,x+w*(5/15),y+h/16+h/32);
+                        
+                        ctx.moveTo(x+w*(7/15),y+h/16+h/32);     //Eighth element
+                        ctx.quadraticCurveTo(x+w*(7/15)+w/30+5,y,x+w*(7/15)+w/30,y+h/16+h/32);
+                        ctx.lineTo(x+w*(7/15)+w/30,y+h/8+h/64);
+                        ctx.quadraticCurveTo(x+w*(7/15)+w/30,y+h/8+h/16,x+w*(7/15),y+h/16+h/32);
+                        
+                        ctx.moveTo(x+w*(7/15)-5,y+h*(2/8)+h/16);    //Nineth element
+                        ctx.quadraticCurveTo(x+w*(6/15)-w/60,y+h*(3/8)-h/32,x+w*(5/15)+w/30,y+h*(2/8)-h/16);
+                        ctx.quadraticCurveTo(x+w*(6/15)+w/30,y+h*(1/8),x+w*(7/15)+5,y+h*(1/8)+h/16);
+                        ctx.fill();
+                }
+                ctx.rotate(-2*Math.PI/p);
+            }
+        </script>
+    </body>
+</html>
