@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Octagonal Line Art
+    </title>
+</head>
+<body>
+    <div>
+        <canvas id="canvas1" width="400" height="400" style="margin-left:5%; margin-top:5%;background-color:black;"></canvas>
+        <br>
+    </div>
+    <div>
+        <button onclick="func1()" style="text-align:center;padding:5px; background-color: dodgerblue;color: floralwhite;">
+            Octagonal Line Art
+        </button>
+    </div>
+    <script>
+        var canvas = document.getElementById("canvas1");
+        var ctx = canvas.getContext('2d');
+        var arr = ["white"];
+        var r = 400;
+        var i=0,j=0;    
+        function func1() 
+        {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.strokeStyle = arr[Math.floor(Math.random() * arr.length)];
+            ctx.strokeRect(i, j, r, r);
+            octagonPolygon(ctx);
+            for(var k=0;k<=18;k+=3)
+            {
+                //Code written for the Central Triangle. 
+                ctx.moveTo(i+r/2-r*(3/32)+2*k,j+r/2+r/16-k);
+                ctx.lineTo(i+r/2,j+r/2-r*(3/32)+2*k);
+                ctx.lineTo(i+r/2+r*(3/32)-2*k,j+r/2+r/16-k);
+                ctx.lineTo(i+r/2-r*(3/32)+2*k,j+r/2+r/16-k);
+            }
+            ctx.translate(r/2,-r/5);      //Adjust to the point where you want to shift the Origin. 
+            ctx.rotate(2*Math.PI/8);     //Rotate the image by the angle you want to it.
+            octagonPolygon(ctx);        //Now Call the fuction to draw the rotated image. 
+            ctx.translate(r,r);         //Again translate the Origin back to the initial coordinate (0,0).
+            ctx.stroke();   
+        }
+
+        function octagonPolygon(ctx)
+        {
+            for(var k=0;k<=r*(3/32);k+=3)
+            {
+                //Code written for Stared Octagonal Polygon.
+                ctx.moveTo(i+r/2,j+r-2*k);
+                ctx.lineTo(i+r/2+r*(3/32)+k,j+r*(3/4)-k);
+                ctx.lineTo(i+r-2*k,j+r/2);
+                ctx.lineTo(i+r*(3/4)-k,j+r/2-r*(3/32)-k);
+                ctx.lineTo(i+r/2,j+2*k);
+                ctx.lineTo(i+r/2-r*(3/32)-k,j+r/4+k);
+                ctx.lineTo(i+2*k,j+r/2);
+                ctx.lineTo(i+r/4+k,j+r/2+r*(3/32)+k);
+                ctx.lineTo(i+r/2,j+r-2*k);
+            }
+            for(var k=0;k<=r/16;k+=3)
+            {
+                //Code written for the middle square.
+                ctx.moveTo(i+r*(3/8)+k,j+r*(5/8)+k);
+                ctx.lineTo(i+r*(5/8)+k,j+r*(5/8)-k);
+                ctx.lineTo(i+r*(5/8)-k,j+r*(3/8)-k);
+                ctx.lineTo(i+r*(3/8)-k,j+r*(3/8)+k);
+                ctx.lineTo(i+r*(3/8)+k,j+r*(5/8)+k);
+            }
+        }
+    </script>
+</body>
+</html>
