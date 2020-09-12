@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Striped Pattern
+    </title>
+</head>
+<body>
+    <div>
+        <canvas id="canvas1" width="500" height="500" style="margin-left:30%;margin-top:5%;background-color:white;"></canvas>
+        <br>
+    </div>
+    <div>
+        <button onclick="func1()" style="text-align:center;padding:5px; background-color: dodgerblue;color: floralwhite;">
+            Striped Pattern
+        </button>
+    </div>
+    <script>
+        var canvas = document.getElementById("canvas1");
+        var ctx = canvas.getContext('2d');
+        var arr = ["black"];
+        var arr1 = ["#426E90"];
+        var r = 50;
+        var i=0,j=0;
+        function func1() 
+        {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (var a = 0; a < 600; a += 2*r) {
+                 for (var b = 0; b <= 600; b += 2*r) {     
+                    stripedPattern(a,b,ctx);
+                    b-=r;
+                    a+=r;
+                    stripedPattern(a,b,ctx);
+                    b+=r;
+                    a-=r;
+                }
+            }
+        }
+        function stripedPattern(a,b,ctx){
+            i=a;j=b;
+            //Code Written for blue part of the image
+            ctx.beginPath();
+            ctx.fillStyle=arr1[Math.floor(Math.random() * arr1.length)];
+            ctx.moveTo(i,j);
+            ctx.lineTo(i+r/5,j);
+            ctx.lineTo(i+r/5,j+r);
+            ctx.lineTo(i,j+r);
+            ctx.lineTo(i,j);
+            
+            ctx.moveTo(i+r*(2/5),j);
+            ctx.lineTo(i+r*(3/5),j);
+            ctx.lineTo(i+r*(3/5),j+r);
+            ctx.lineTo(i+r*(2/5),j+r);
+            ctx.lineTo(i+r*(2/5),j);
+
+            ctx.moveTo(i+r*(4/5),j);
+            ctx.lineTo(i+r,j);
+            ctx.lineTo(i+r,j+r);
+            ctx.lineTo(i+r*(4/5),j+r);
+            ctx.lineTo(i+r*(4/5),j);
+            ctx.fill();
+            // ctx.stroke();
+
+            //Code Written for black part of the image
+            ctx.beginPath();
+            ctx.fillStyle=arr[Math.floor(Math.random() * arr.length)];
+            ctx.moveTo(i,j+r*(3/2));
+            ctx.lineTo(i,j+2*r);
+            ctx.lineTo(i+r/5,j+2*r);
+            ctx.lineTo(i,j+r*(3/2));
+            
+            ctx.moveTo(i,j+r);
+            ctx.lineTo(i+r/5,j+r);
+            ctx.lineTo(i+r*(3/5),j+2*r);
+            ctx.lineTo(i+r*(2/5),j+2*r);
+            ctx.lineTo(i,j+r);
+
+            ctx.moveTo(i+r*(2/5),j+r);
+            ctx.lineTo(i+r*(3/5),j+r);
+            ctx.lineTo(i+r,j+2*r);
+            ctx.lineTo(i+r*(4/5),j+2*r);
+            ctx.lineTo(i+r*(2/5),j+r);
+
+            ctx.moveTo(i+r*(4/5),j+r);
+            ctx.lineTo(i+r,j+r);
+            ctx.lineTo(i+r,j+r*(3/2));
+            ctx.lineTo(i+r*(4/5),j+r);
+            
+            ctx.fill();
+            // ctx.stroke();
+        }
+    </script>
+</body>
+</html>
