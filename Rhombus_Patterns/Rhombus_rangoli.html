@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Rangoli
+        </title>
+    </head>
+    <body>
+    <div style="margin-left:2%;margin-top:2%;">
+        <canvas id="canvas1" width="350" height="400"></canvas>
+        <br>
+    </div>
+        <button onclick="func1()" >Rangoli Art</button>
+    <script>
+            var canvas=document.getElementById("canvas1");
+            var ctx=canvas.getContext('2d');
+            canvas.style.background="rgb(20, 117, 117)";
+            var arr1=["black"];
+            var arr=["white"];
+            ctx.translate(150,200);    //Moves the origin to the coordinate 200,200
+            function func1()
+            {
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+                ctx.strokeStyle = arr[Math.floor(Math.random()*arr.length)];  
+                ctx.fillStyle = arr1[Math.floor(Math.random()*arr1.length)];  
+                DecagonalPolygonSlices(250,10,ctx);   //Dodecagon with radius 150
+                ctx.stroke();
+            }
+            function DecagonalPolygonSlices(r,p,ctx)       //r is radius, p is number of sides of polygon, and ctx is the context object
+            {  
+                var i=0,j=0;
+                var h=100;
+                var w=50;
+                for(i=0; i<p/2; i++)
+                {
+                    ctx.lineWidth=2;
+                    var k=0;
+                    for(var m=0;m<15;m+=2)
+                    {
+                        ctx.strokeStyle = arr[Math.floor(Math.random()*arr.length)];  
+                        ctx.moveTo(i+k,j+h/2);
+                        ctx.lineTo(i+w/2+k,j);
+                        ctx.lineTo(i+w+k,j+h/2);
+                        ctx.lineTo(i+w/2+k,j+h);
+                        ctx.lineTo(i+k,j+h/2);
+                        k+=5;
+                        ctx.stroke();
+                    }
+                    i+=50;
+                    j+=100;
+                }
+                ctx.rotate(-2*Math.PI/p);
+            }
+        </script>
+    </body>
+</html>

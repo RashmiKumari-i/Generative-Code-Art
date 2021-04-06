@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Line Art</title>
+</head>
+<body>
+    <div style="margin-left:2%;margin-top:2%;background-color:rgb(20, 118, 118);">
+        <canvas id="canvas1" width="1200" height="400"></canvas>
+        <br>
+    </div>
+        <button onclick="func1()" >Line Pattern</button>
+    <script>
+            var canvas=document.getElementById("canvas1");
+            var ctx=canvas.getContext('2d');
+            var arr1=["black"];
+            var arr=["white"];
+            var h=100;
+            var w=50;
+            function func1()
+            {
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+                for(var i=0;i<=canvas.width;i+=w+20)
+                {
+                    for(var j=0;j<=canvas.height;j+=h+20)
+                    {
+                        var k=0;
+                        for(var m=0;m<15;m++)
+                        {
+                            ctx.strokeStyle = arr[Math.floor(Math.random()*arr.length)];  
+                            ctx.moveTo(i+k,j+h/2);
+                            ctx.lineTo(i+w/2+k,j);
+                            ctx.lineTo(i+w+k,j+h/2);
+                            ctx.lineTo(i+w/2+k,j+h);
+                            ctx.lineTo(i+k,j+h/2);
+                            k+=4;
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+            
+    </script>
+</body>
+</html>
